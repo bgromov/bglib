@@ -3,6 +3,8 @@ BlueGiga BLE (Bluetooth Low-Energy aka Bluetooth Smart) library.
 
 Current version is based on BlueGiga SDK v1.3.2-122.
 
+**Disclaimer**: The code in this repository simply wraps the original library sources provided by BlueGiga SDK. The main benefit of this version is that it makes the library an external dependency. If you want to embed the library to your project, please refer to original SDK.
+
 # How to install
 
 1. Clone
