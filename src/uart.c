@@ -93,7 +93,7 @@ void uart_list_devices()
     return;
 }
 
-int uart_find_serialport(char *name)
+int uart_find_serialport(const char *name)
 {
     BYTE* pbuf = NULL;
     DWORD reqSize = 0;
@@ -148,7 +148,7 @@ int uart_find_serialport(char *name)
     return -1;
 }
 
-int uart_open(char *port)
+int uart_open(const char *port)
 {
     char str[20];
 
@@ -249,7 +249,7 @@ int serial_handle;
 
 void uart_list_devices() {}
 
-int uart_open(char *port)
+int uart_open(const char *port)
 {
     struct termios options;
     int i;
