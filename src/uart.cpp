@@ -1,5 +1,5 @@
 //
-// Bluegiga’s Bluetooth Smart Demo Application
+// Bluegigaï¿½s Bluetooth Smart Demo Application
 // Contact: support@bluegiga.com.
 //
 // This is free software distributed under the terms of the MIT license reproduced below.
@@ -33,6 +33,8 @@
 
 #include <windows.h>
 #include <Setupapi.h>
+
+namespace bglib {
 
 HANDLE serial_handle;
 
@@ -238,12 +240,16 @@ int uart_rx(int len,unsigned char *data,int timeout_ms)
     return l;
 }
 
+} /* namespace bglib */
+
 #else
 
 #include <stdio.h>
 #include <termios.h>
 #include <fcntl.h>
 #include <unistd.h>
+
+namespace bglib {
 
 int serial_handle;
 
@@ -300,7 +306,7 @@ void uart_close()
     close(serial_handle);
 }
 
-int uart_tx(int len,unsigned char *data)
+int uart_tx(int len, const unsigned char *data)
 {
     ssize_t written;
 
@@ -317,7 +323,7 @@ int uart_tx(int len,unsigned char *data)
 
     return 0;
 }
-int uart_rx(int len,unsigned char *data,int timeout_ms)
+int uart_rx(int len, unsigned char *data, int timeout_ms)
 {
     int l=len;
     ssize_t rread;
@@ -344,5 +350,7 @@ int uart_rx(int len,unsigned char *data,int timeout_ms)
 
     return l;
 }
+
+} /* namespace bglib */
 
 #endif

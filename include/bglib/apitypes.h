@@ -2,6 +2,7 @@
 #ifndef APITYPES_H_
 #define APITYPES_H_
 
+namespace bglib {
 #ifdef __GNUC__
 
 #define PACKSTRUCT( decl ) decl __attribute__((__packed__))
@@ -40,5 +41,6 @@ typedef struct
     int8 data[];
 }string;
 
+} /* namespace bglib */
 
 #endif

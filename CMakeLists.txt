@@ -17,13 +17,12 @@ include_directories (
 
 add_definitions (
     -DPLATFORM_POSIX
-    -DUSE_WEAK_REF
+    -std=c++11
 )
 
 add_library (${PROJECT_NAME} SHARED
-    src/cmd_def.c
-    src/commands.c
-    src/uart.c
+    src/cmd_def.cpp
+    src/uart.cpp
 )
 
 set_target_properties (${PROJECT_NAME} PROPERTIES
@@ -32,7 +31,7 @@ set_target_properties (${PROJECT_NAME} PROPERTIES
 )
 
 add_executable (scan_example
-    examples/scan_example/main.c
+    examples/scan_example/main.cpp
 )
 
 target_link_libraries (scan_example
