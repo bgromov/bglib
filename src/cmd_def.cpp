@@ -500,9 +500,6 @@ const struct ble_class_handler_t ble_class_evt_handlers[ble_cls_last]=
 
 Ble::Ble()
 {
-  setMsgHandler<void>(std::bind(&Ble::rspSystemReset, this, std::placeholders::_1));
-  setMsgHandler<ble_msg_system_boot_evt_t>(std::bind(&Ble::evtSystemBoot, this, std::placeholders::_1));
-  setMsgHandler<ble_msg_gap_scan_response_evt_t>(std::bind(&Ble::evtGapScanResponse, this, std::placeholders::_1));
 }
 
 void Ble::setMsgHandler(uint8 idx, const MsgHandlerPtr& handler)
