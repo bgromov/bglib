@@ -557,7 +557,7 @@ void Ble::sendMessage(uint8 msgid, ...)
   struct ble_cmd_packet packet;
   uint8 *b = (uint8 *)&packet.payload;
 
-  uint8 *hw;
+  bd_addr hw;
   uint8 *data_ptr = 0;
   uint16 data_len = 0;
   va_list va;
@@ -605,14 +605,14 @@ void Ble::sendMessage(uint8 msgid, ...)
         data_ptr = va_arg(va, uint8*);
         break;
       case 10:/*hwaddr*/
-        hw = va_arg(va, uint8*);
+        hw = va_arg(va, bd_addr);
 
-        *b++ = *hw++;
-        *b++ = *hw++;
-        *b++ = *hw++;
-        *b++ = *hw++;
-        *b++ = *hw++;
-        *b++ = *hw++;
+        *b++ = hw.addr[0];
+        *b++ = hw.addr[1];
+        *b++ = hw.addr[2];
+        *b++ = hw.addr[3];
+        *b++ = hw.addr[4];
+        *b++ = hw.addr[5];
 
         break;
       case 11:/*uint16 array*/
